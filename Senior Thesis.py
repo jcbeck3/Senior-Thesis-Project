@@ -387,7 +387,7 @@ for block in range(0,blocknum[0]):
                 rs_mapping.setAutoDraw(False)
                 event.clearEvents() #to clear the buffer of any button presses
 
-            #--ISI SCREEN BEFORE DIAGNOTIC-------------------------##
+            #--ISI SCREEN BEFORE DIAGNOSTIC-------------------------##
             if t >= ISI_cross_starttime1 and ISI_cross1.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 ISI_cross1.tStart = t
