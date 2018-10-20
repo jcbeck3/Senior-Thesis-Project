@@ -174,7 +174,7 @@ ISI_cross_duration1 = 1.000
                 # or 1500ms
 ISI_duration = 2.900
 stimulus_duration = 0.600
-ITI_cross_duration = 1.500
+ITI_cross_duration = 2.900
 
 
 ##----------------------------------------------------------------------------##
@@ -403,8 +403,8 @@ for block in range(0,blocknum[0]):
 
                     corr_key = keypress[stimmatrix[0][i]]
                     key = 'none'
-                    
-
+                    time = 'no response'
+                    rt = 'no response'
                     #--DIAGNOSTIC ITEMS-------------------------------------##
                     diagnostic_word = diagnostic_words[i]
                     #ISI_cross = ISI_crosses[i]
@@ -414,16 +414,22 @@ for block in range(0,blocknum[0]):
                         diagnostic_word.frameNStart = frameN  # exact frame index
                         diagnostic_word.setAutoDraw(True)
                     frameRemains = diagnostic_starttime[i] + stimulus_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
-                    if (diagnostic_word.status == STARTED):
-                        key_list = event.getKeys(keyList=keypress)
-                    if (diagnostic_word.status == STARTED and t >= frameRemains) or (diagnostic_word.status == STARTED and (len(key_list)>0)):
+                    frameRemains2 = diagnostic_starttime[i] + stimulus_duration + ISI_duration - win.monitorFramePeriod * 0.75
+                    key_list_temp = event.getKeys(keyList=keypress)
+                    if len(key_list_temp) > 0:
+                        key_list = key_list_temp
+                    if (diagnostic_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                         diagnostic_word.setAutoDraw(False)
+                        diagnostic_word.status = PAUSED;
+                    if (t >= frameRemains2 and diagnostic_word.status == PAUSED):
                         if len(key_list)>0:
                             print("Button was pressed")
                             print(key_list)
                             key = key_list[0]
                             del key_list[0]  
-                        time = t
+                            time = t
+                            rt = ((time)-(tStart))*1000
+                        diagnostic_word.status = FINISHED
 
                         ## RECORD DATA ON THE STIMULUS
                         thisExp.addData('SubjID', expInfo['participant'])
@@ -438,7 +444,7 @@ for block in range(0,blocknum[0]):
                         thisExp.addData('ButtonPress', key)
                         thisExp.addData('Accuracy', int(corr_key == key))
                         thisExp.addData('ButtonPressTime', time)
-                        thisExp.addData('RT', ((time)-(tStart))*1000)
+                        thisExp.addData('RT', rt)
                         thisExp.nextEntry()   
 
 
@@ -454,6 +460,8 @@ for block in range(0,blocknum[0]):
 
             #--INDUCER ITEM------------------------------------## Keep going here
             key = 'none'
+            time = 'no response'
+            rt = 'no response'
             if t >= inducer1_starttime and inducer1_word.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 #print("First inducer word: " + diagnostic_word.text + " at " + str(t))
@@ -461,32 +469,43 @@ for block in range(0,blocknum[0]):
                 inducer1_word.frameNStart = frameN  # exact frame index
                 inducer1_word.setAutoDraw(True)
             frameRemains = inducer1_starttime + stimulus_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
-            if (inducer1_word.status == STARTED):
-                key_list = event.getKeys(keyList=keypress)
-            if (inducer1_word.status == STARTED and t >= frameRemains) or (inducer1_word.status == STARTED and len(key_list)>0):
+            frameRemains2 = inducer1_starttime + stimulus_duration + ISI_duration - win.monitorFramePeriod * 0.75
+            key_list_temp = event.getKeys(keyList=keypress)
+            if len(key_list_temp) > 0:
+                key_list = key_list_temp
+            if (inducer1_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                 inducer1_word.setAutoDraw(False)
+                inducer1_word.status = PAUSED;
+            if (t >= frameRemains2 and inducer1_word.status == PAUSED):
                 if len(key_list)>0:
+                    print("Button was pressed")
+                    print(key_list)
                     key = key_list[0]
-                    del key_list[0]
-                time = t
+                    del key_list[0]  
+                    time = t
+                    rt = ((time)-(tStart))*1000
+                inducer1_word.status = FINISHED
 
                 ## RECORD DATA ON THE STIMULUS
                 thisExp.addData('SubjID', expInfo['participant'])
                 thisExp.addData('Block', block+1)
                 thisExp.addData('Miniblock', trial+1)
-                thisExp.addData('Trial', stimnum + 1)
+                thisExp.addData('Trial', stimnum+1)
                 thisExp.addData('StimulusType', 'inducer')
                 thisExp.addData('Word', inducer1_word.text)
                 thisExp.addData('WordCongruency', 'none')
-                thisExp.addData('Word Orientation', 'word')
-                thisExp.addData('WordPTime',tStart)
+                thisExp.addData('Word Orientation', 'none')
+                thisExp.addData('WordPTime', tStart)
                 thisExp.addData('ButtonPress', key)
-                thisExp.addData('Accuracy', int(corr_key1 == key))
+                thisExp.addData('Accuracy', int(corr_key == key))
                 thisExp.addData('ButtonPressTime', time)
-                thisExp.addData('RT', ((time)-(tStart))*1000)
+                thisExp.addData('RT', rt)
                 thisExp.nextEntry()   
 
+
             key = 'none'
+            time = 'no response'
+            rt = 'no response'
             if t >= inducer2_starttime and inducer2_word.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 #print("Second inducer word: " + diagnostic_word.text + " at " + str(t))
@@ -494,30 +513,40 @@ for block in range(0,blocknum[0]):
                 inducer2_word.frameNStart = frameN  # exact frame index
                 inducer2_word.setAutoDraw(True)
             frameRemains = inducer2_starttime + stimulus_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
-            if (inducer2_word.status == STARTED):
-                key_list = event.getKeys(keyList=keypress)
-            if (inducer2_word.status == STARTED and t >= frameRemains) or (inducer2_word.status == STARTED and len(key_list)>0):
+            frameRemains2 = inducer2_starttime + stimulus_duration + ITI_cross_duration - win.monitorFramePeriod * 0.75
+            key_list_temp = event.getKeys(keyList=keypress)
+            if len(key_list_temp) > 0:
+                key_list = key_list_temp
+            if (inducer2_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                 inducer2_word.setAutoDraw(False)
+                inducer2_word.status = PAUSED;
+            if (t >= frameRemains2 and inducer2_word.status == PAUSED):
                 if len(key_list)>0:
+                    print("Button was pressed at end")
+                    print(key_list)
                     key = key_list[0]
-                    del key_list[0]
-                time = t
-
+                    del key_list[0]  
+                    time = t
+                    rt = ((time)-(tStart))*1000
+                inducer2_word.status = FINISHED
+    
                 ## RECORD DATA ON THE STIMULUS
                 thisExp.addData('SubjID', expInfo['participant'])
                 thisExp.addData('Block', block+1)
                 thisExp.addData('Miniblock', trial+1)
-                thisExp.addData('Trial', stimnum + 2)
+                thisExp.addData('Trial', stimnum+2)
                 thisExp.addData('StimulusType', 'inducer')
                 thisExp.addData('Word', inducer2_word.text)
                 thisExp.addData('WordCongruency', 'none')
-                thisExp.addData('Word Orientation', 'word')
-                thisExp.addData('WordPTime',tStart)
+                thisExp.addData('Word Orientation', 'none')
+                thisExp.addData('WordPTime', tStart)
                 thisExp.addData('ButtonPress', key)
-                thisExp.addData('Accuracy', int(corr_key2 == key))
+                thisExp.addData('Accuracy', int(corr_key == key))
                 thisExp.addData('ButtonPressTime', time)
-                thisExp.addData('RT', ((time)-(tStart))*1000)
+                thisExp.addData('RT', rt)
                 thisExp.nextEntry()   
+
+
 
 
             #--ITI SCREEN----------------------------------------------##
@@ -541,7 +570,7 @@ for block in range(0,blocknum[0]):
 
 
         ##-SET ALL TRIAL COMPONENTS TO 'NOT STARTED'---------------------------###Restarting trial
-        trialComponents = [ISI_cross1,ITI_cross,ISI_cross2,rs_mapping,instruction1]
+        trialComponents = [ISI_cross1,ITI_cross,ISI_cross2,rs_mapping,instruction1,inducer1_word,inducer2_word]
         for thisComponent in trialComponents:
             if hasattr(thisComponent, 'setAutoDraw'):
                 thisComponent.setAutoDraw(False)
