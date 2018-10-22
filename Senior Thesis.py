@@ -184,12 +184,12 @@ ITI_cross_duration = 2.900
 #Inter-stimulus interval cross
 ISI_cross_clock = core.Clock()
 ISI_cross1 = visual.TextStim(
-    win=win, name='ISI_cross', text=u'+', font=u'Arial', pos=(0, 0),
+    win=win, name='ISI_cross1', text=u'+', font=u'Arial', pos=(0, 0),
     height=0.2, wrapWidth=None, ori=0, color=u'white', colorSpace='rgb',
     opacity=1, depth=0.0)
     
 ISI_cross2 = visual.TextStim(
-    win=win, name='ISI_cross', text=u'+', font=u'Arial', pos=(0, 0),
+    win=win, name='ISI_cross2', text=u'+', font=u'Arial', pos=(0, 0),
     height=0.2, wrapWidth=None, ori=0, color=u'white', colorSpace='rgb',
     opacity=1, depth=0.0)
 
@@ -318,11 +318,6 @@ for block in range(0,blocknum[0]):
                     pos=vert_options[trial_vert[x]],
                     height=0.2, wrapWidth=None, ori=0, color=u'red', colorSpace='rgb',
                     opacity=1, depth=0.0, italic=stimmatrix[0][x]))
-                #ISI_crosses.append(visual.TextStim(
-                #    win=win, name='ISI_cross', text=u'+', font=u'Arial', pos=(0, 0),
-                #    height=0.2, wrapWidth=None, ori=0, color=u'white', colorSpace='rgb',
-                #    opacity=1, depth=0.0))
-
 
         inducer_left_word = visual.TextStim(
             win=win, name='inducer_left_word', text=word_pair[0], font=u'Arial', pos=vert_options[trial_vert[-2]],
@@ -356,8 +351,7 @@ for block in range(0,blocknum[0]):
 
         #----------------------------------------------------------------------#
 
-        routineTimer.add(rs_mapping_duration + ISI_cross_duration1 + (stimnum+1)*ISI_duration + 
-            (stimnum+2)*stimulus_duration + ITI_cross_duration)
+
 
         # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
         if thisTrial_2 != None:
@@ -371,8 +365,11 @@ for block in range(0,blocknum[0]):
         ##-SET DIAGNOSTIC SCREEN----------------------------------------------##
         word_presented_clock.reset()    # clock
 
+        routineTimer.add(rs_mapping_duration + ISI_cross_duration1 + (stimnum+1)*ISI_duration + 
+            (stimnum+2)*stimulus_duration + ITI_cross_duration + win.monitorFramePeriod)
+
         ##-START TRIAL ROUTINE------------------------------------------------##
-        while continueRoutine and routineTimer.getTime() > 0:
+        while continueRoutine: # and routineTimer.getTime() > 0:
             t = trial_clock.getTime()
             frameN = frameN + 1
 
@@ -423,8 +420,8 @@ for block in range(0,blocknum[0]):
                         diagnostic_word.status = PAUSED;
                     if (t >= frameRemains2 and diagnostic_word.status == PAUSED):
                         if len(key_list)>0:
-                            print("Button was pressed")
-                            print(key_list)
+                        #    print("Button was pressed")
+                        #    print(key_list)
                             key = key_list[0]
                             del key_list[0]  
                             time = t
@@ -478,8 +475,8 @@ for block in range(0,blocknum[0]):
                 inducer1_word.status = PAUSED;
             if (t >= frameRemains2 and inducer1_word.status == PAUSED):
                 if len(key_list)>0:
-                    print("Button was pressed")
-                    print(key_list)
+                #    print("Button was pressed")
+                #    print(key_list)
                     key = key_list[0]
                     del key_list[0]  
                     time = t
@@ -497,7 +494,7 @@ for block in range(0,blocknum[0]):
                 thisExp.addData('Word Orientation', 'none')
                 thisExp.addData('WordPTime', tStart)
                 thisExp.addData('ButtonPress', key)
-                thisExp.addData('Accuracy', int(corr_key == key))
+                thisExp.addData('Accuracy', int(corr_key1 == key))
                 thisExp.addData('ButtonPressTime', time)
                 thisExp.addData('RT', rt)
                 thisExp.nextEntry()   
@@ -507,29 +504,38 @@ for block in range(0,blocknum[0]):
             time = 'no response'
             rt = 'no response'
             if t >= inducer2_starttime and inducer2_word.status == NOT_STARTED:
-                # keep track of start time/frame for later
-                #print("Second inducer word: " + diagnostic_word.text + " at " + str(t))
                 tStart = t
                 inducer2_word.frameNStart = frameN  # exact frame index
                 inducer2_word.setAutoDraw(True)
-            frameRemains = inducer2_starttime + stimulus_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
-            frameRemains2 = inducer2_starttime + stimulus_duration + ITI_cross_duration - win.monitorFramePeriod * 0.75
+            frameRemains3 = inducer2_starttime + stimulus_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
+           
+            if (inducer2_word.status == STARTED and t >= frameRemains3):
+                inducer2_word.setAutoDraw(False)
+                inducer2_word.status = PAUSED;
+            #--ITI SCREEN----------------------------------------------##
+            if (t >= ITI_cross_starttime and ITI_cross.status == NOT_STARTED):
+                # keep track of start time/frame for later
+                #ITI_cross.tStart = t
+                ITI_cross.frameNStart = frameN  # exact frame index
+                ISI_cross2.setAutoDraw(False)
+                ITI_cross.setAutoDraw(True)
             key_list_temp = event.getKeys(keyList=keypress)
             if len(key_list_temp) > 0:
                 key_list = key_list_temp
-            if (inducer2_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
-                inducer2_word.setAutoDraw(False)
-                inducer2_word.status = PAUSED;
-            if (t >= frameRemains2 and inducer2_word.status == PAUSED):
+            frameRemains4 = ITI_cross_starttime + ITI_cross_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
+            
+            if (ITI_cross.status == STARTED and t >= frameRemains4 and inducer2_word.status == PAUSED):
+                print("Made it here")
                 if len(key_list)>0:
-                    print("Button was pressed at end")
-                    print(key_list)
+                #    print("Button was pressed at end")
+                #    print(key_list)
                     key = key_list[0]
                     del key_list[0]  
                     time = t
                     rt = ((time)-(tStart))*1000
                 inducer2_word.status = FINISHED
-    
+                ITI_cross.setAutoDraw(False)
+                
                 ## RECORD DATA ON THE STIMULUS
                 thisExp.addData('SubjID', expInfo['participant'])
                 thisExp.addData('Block', block+1)
@@ -541,24 +547,12 @@ for block in range(0,blocknum[0]):
                 thisExp.addData('Word Orientation', 'none')
                 thisExp.addData('WordPTime', tStart)
                 thisExp.addData('ButtonPress', key)
-                thisExp.addData('Accuracy', int(corr_key == key))
+                thisExp.addData('Accuracy', int(corr_key2 == key))
                 thisExp.addData('ButtonPressTime', time)
                 thisExp.addData('RT', rt)
-                thisExp.nextEntry()   
-
-
-
-
-            #--ITI SCREEN----------------------------------------------##
-            if (t >= ITI_cross_starttime and ITI_cross.status == NOT_STARTED):
-                # keep track of start time/frame for later
-                ITI_cross.tStart = t
-                ITI_cross.frameNStart = frameN  # exact frame index
-                ISI_cross2.setAutoDraw(False)
-                ITI_cross.setAutoDraw(True)
-            frameRemains = ITI_cross_starttime + ITI_cross_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
-            if ITI_cross.status == STARTED and t >= frameRemains:
-                ITI_cross.setAutoDraw(False)
+                thisExp.nextEntry()
+                
+                continueRoutine = False
 
             #--CHECK FOR ESCAPES----------------------------------------------##
             if endExpNow or event.getKeys(keyList=["escape"]):
@@ -566,10 +560,11 @@ for block in range(0,blocknum[0]):
 
             #--FLIP THE WINDOW------------------------------------------------##
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()     
+                win.flip()
 
 
         ##-SET ALL TRIAL COMPONENTS TO 'NOT STARTED'---------------------------###Restarting trial
+        
         trialComponents = [ISI_cross1,ITI_cross,ISI_cross2,rs_mapping,instruction1,inducer1_word,inducer2_word]
         for thisComponent in trialComponents:
             if hasattr(thisComponent, 'setAutoDraw'):
