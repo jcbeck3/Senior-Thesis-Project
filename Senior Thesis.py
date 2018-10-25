@@ -92,10 +92,12 @@ inducer_word = visual.TextStim(
 trialnum = [20]                 #number of trials/ miniblocks
 blocknum = [4]                  #number of blocks
 stim_options = [[0,0],[1,2],[2,2],[1,4],[2,3]]         #differing number of stimuli per trial
-word_list = ['word1','word2','word3','word4','word5','word6','word7','word8','word9','word10',
-             'word11','word12','word13','word14','word15','word16','word17','word18','word19','word20',
-             'word21','word22','word23','word24','word25','word26','word27','word28','word29','word30',
-             'word31','word32','word33','word34','word35','word36','word37','word38','word39','word40']
+word_list = ['record','worry','using','widely','grab','tank','creek','guilty','slowly','lights','plants','matrix','sudden',
+'funny','trial','wave','animal','gear','raised','shield','ship','touch','input','bull','tone','truth','dear','drugs','tough',
+'failed','newt','tall','must','busy','powers','postal','here','hell','silver','minute','pour','milk','smiled','group','begins',
+'sell','cock','shares','text','dice','frank','lack','duties','filter','happy','issues','class','moon','chain','friend','troll',
+'much','virus','blade','video','rate','global','falls','severe','array','voting','lose','signal','cold','cities','models','smile',
+'manual','prayer','deal','extra','racial','love','debate','laid','plans','goblin','figure','doubt','crimes','dirty','latest']
 vert_options = [(0,0.2),(0,-0.2)] #if 0 is above fixation, if 1 is below
 
 #   Mapping to values
@@ -187,7 +189,7 @@ ISI_cross1 = visual.TextStim(
     win=win, name='ISI_cross', text=u'+', font=u'Arial', pos=(0, 0),
     height=0.2, wrapWidth=None, ori=0, color=u'white', colorSpace='rgb',
     opacity=1, depth=0.0)
-    
+
 ISI_cross2 = visual.TextStim(
     win=win, name='ISI_cross', text=u'+', font=u'Arial', pos=(0, 0),
     height=0.2, wrapWidth=None, ori=0, color=u'white', colorSpace='rgb',
@@ -221,11 +223,11 @@ thisTrial_2 = trials_total.trialList[0]  # so we can initialise stimuli with som
 if thisTrial_2 != None:
     for paramName in thisTrial_2:
         exec('{} = thisTrial_2[paramName]'.format(paramName))
-        
+
 ##----------------------------------------------------------------------------##
 ##-INSTRUCTION SCREEN---------------------------------------------------------##
 ##----------------------------------------------------------------------------##
-        
+
 instruction1 = visual.TextStim(
     win=win, font=u'Arial', name = 'instruction1', pos=(0, 0),
     height=0.2, wrapWidth=None, ori=0, color=u'white', colorSpace='rgb',
@@ -237,14 +239,14 @@ instruction1 = visual.TextStim(
 ##----------------------------------------------------------------------------##
 
 for block in range(0,blocknum[0]):
-    
+
     block_prop = block_ord[block]    #proportion of congruent stimuli -- 0 if mostly congruent
-    
+
     print(str(block))
-    
+
     trialmatrix = trialmatrix_full[:trial_by_block]
     trialmatrix_full = trialmatrix_full[trial_by_block:]
-    
+
     word_list_left = word_list_left_full[:trial_by_block]
     print("List of left words for block:")
     print(word_list_left)
@@ -252,13 +254,13 @@ for block in range(0,blocknum[0]):
     print(word_list_left_full)
     word_list_right = word_list_right_full[:trial_by_block]
     word_list_right_full = word_list_right_full[trial_by_block:]
-    
+
 
     ##      Instructions at the beginning of the block
     instruction1.setText(u"Block " + str(block + 1) + " of " + str(blocknum[0]) + ".\n\nPress space when ready.")
-        
+
     continueRoutineInstruct = True
-    
+
     while (continueRoutineInstruct):
         if (instruction1.status == NOT_STARTED):
             instruction1.setAutoDraw(True)
@@ -267,9 +269,9 @@ for block in range(0,blocknum[0]):
             instruction1.setAutoDraw(False)
         if continueRoutineInstruct:
                 win.flip()
-        
+
     for trial in range(0,trial_by_block):  #trials per run -- 7 trials
-        
+
 
         time = 0                        #last stimulus is inducer
         frameN = -1
@@ -288,16 +290,16 @@ for block in range(0,blocknum[0]):
 
         proportion = prop_sep[block_prop] + prop_sep[1-block_prop] #first come 1's, then come 0's (i.e. first number inc, then number cong)
         stimnum = len(proportion)
-        
+
         rand_stim = np.repeat(range(0,stimnum),1)
         np.random.shuffle(rand_stim)
         #print("Stimulus combo for trial: ")
         #print(rand_stim)
 
         stimmatrix = [stim_italics[:stimnum],                   #whether stim is upright (0) or italics (1)
-                      np.repeat(proportion,1)]                  #whether stim is congruent (0) or not (1) 
+                      np.repeat(proportion,1)]                  #whether stim is congruent (0) or not (1)
         trial_vert = vert[:(stimnum + 2)]
-        
+
         del stim_italics[:stimnum]
         del vert[:(stimnum + 2)]
 
@@ -314,7 +316,7 @@ for block in range(0,blocknum[0]):
             #ISI_crosses = []
             for x in rand_stim:
                 diagnostic_words.append(visual.TextStim(
-                    win=win, name='diagnostic_word', text=word_pair[not(stimmatrix[0][x] == stimmatrix[1][x])] ,font=u'Arial', 
+                    win=win, name='diagnostic_word', text=word_pair[not(stimmatrix[0][x] == stimmatrix[1][x])] ,font=u'Arial',
                     pos=vert_options[trial_vert[x]],
                     height=0.2, wrapWidth=None, ori=0, color=u'red', colorSpace='rgb',
                     opacity=1, depth=0.0, italic=stimmatrix[0][x]))
@@ -342,21 +344,21 @@ for block in range(0,blocknum[0]):
         rs_mapping_starttime = 0.000
         ISI_cross_starttime1 = 5.000
         inducer1_starttime = ISI_cross_starttime1 + ISI_cross_duration1
-        
+
         #ISI_cross_starttime2 = ISI_cross_starttime1 + ISI_cross_duration1
         #ISI_cross_duration2 = (ISI_duration*(stimnum+1))+stimulus_duration*(stimnum+2)
 
         if stimnum != 0:
             diagnostic_starttime = [(ISI_cross_starttime1 + ISI_cross_duration1) +
                                         (stimulus_duration + ISI_duration)*i for i in range(stimnum)]
-            inducer1_starttime = diagnostic_starttime[-1] + stimulus_duration + ISI_duration       
+            inducer1_starttime = diagnostic_starttime[-1] + stimulus_duration + ISI_duration
 
         inducer2_starttime = inducer1_starttime + stimulus_duration + ISI_duration
         ITI_cross_starttime = inducer2_starttime + stimulus_duration
 
         #----------------------------------------------------------------------#
 
-        routineTimer.add(rs_mapping_duration + ISI_cross_duration1 + (stimnum+1)*ISI_duration + 
+        routineTimer.add(rs_mapping_duration + ISI_cross_duration1 + (stimnum+1)*ISI_duration +
             (stimnum+2)*stimulus_duration + ITI_cross_duration)
 
         # abbreviate parameter names if possible (e.g. rgb = thisTrial_2.rgb)
@@ -391,19 +393,19 @@ for block in range(0,blocknum[0]):
             if t >= ISI_cross_starttime1 and ISI_cross1.status == NOT_STARTED:
                 # keep track of start time/frame for later
                 ISI_cross1.tStart = t
-                ISI_cross1.frameNStart = frameN  # exact frame index                    
+                ISI_cross1.frameNStart = frameN  # exact frame index
                 ISI_cross1.setAutoDraw(True)
             frameRemains = ISI_cross_starttime1 + ISI_cross_duration1 - win.monitorFramePeriod * 0.75  # most of one frame period left
             if ISI_cross1.status == STARTED and t >= frameRemains:
                 ISI_cross1.setAutoDraw(False)
                 ISI_cross2.setAutoDraw(True)
-                
-            if stimnum != 0: 
+
+            if stimnum != 0:
                 for i in range(stimnum):
 
                     corr_key = keypress[stimmatrix[0][i]]
                     key = 'none'
-                    
+
 
                     #--DIAGNOSTIC ITEMS-------------------------------------##
                     diagnostic_word = diagnostic_words[i]
@@ -422,7 +424,7 @@ for block in range(0,blocknum[0]):
                             print("Button was pressed")
                             print(key_list)
                             key = key_list[0]
-                            del key_list[0]  
+                            del key_list[0]
                         time = t
 
                         ## RECORD DATA ON THE STIMULUS
@@ -439,7 +441,7 @@ for block in range(0,blocknum[0]):
                         thisExp.addData('Accuracy', int(corr_key == key))
                         thisExp.addData('ButtonPressTime', time)
                         thisExp.addData('RT', ((time)-(tStart))*1000)
-                        thisExp.nextEntry()   
+                        thisExp.nextEntry()
 
 
             inducer1_word = inducer_pair[0]
@@ -484,7 +486,7 @@ for block in range(0,blocknum[0]):
                 thisExp.addData('Accuracy', int(corr_key1 == key))
                 thisExp.addData('ButtonPressTime', time)
                 thisExp.addData('RT', ((time)-(tStart))*1000)
-                thisExp.nextEntry()   
+                thisExp.nextEntry()
 
             key = 'none'
             if t >= inducer2_starttime and inducer2_word.status == NOT_STARTED:
@@ -517,7 +519,7 @@ for block in range(0,blocknum[0]):
                 thisExp.addData('Accuracy', int(corr_key2 == key))
                 thisExp.addData('ButtonPressTime', time)
                 thisExp.addData('RT', ((time)-(tStart))*1000)
-                thisExp.nextEntry()   
+                thisExp.nextEntry()
 
 
             #--ITI SCREEN----------------------------------------------##
@@ -537,7 +539,7 @@ for block in range(0,blocknum[0]):
 
             #--FLIP THE WINDOW------------------------------------------------##
             if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
-                win.flip()     
+                win.flip()
 
 
         ##-SET ALL TRIAL COMPONENTS TO 'NOT STARTED'---------------------------###Restarting trial

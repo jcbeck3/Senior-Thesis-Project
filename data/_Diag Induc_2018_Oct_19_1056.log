@@ -1,0 +1,126 @@
+6.5920 	WARNING 	User requested fullscreen with size [1024  768], but screen is actually [1920, 1080]. Using actual size
+7.8396 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([ 0.,  0.,  0.]), colorSpace='rgb', fullscr=UNKNOWN, gamma=None, kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x1E8C5130>, multiSample=False, name='window1', numSamples=2, pos=[0, 0], screen=1, size=array([1920, 1080]), stereo=False, units=u'norm', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType=u'pyglet')
+7.8396 	EXP 	window1: recordFrameIntervals = False
+8.0019 	EXP 	window1: recordFrameIntervals = True
+8.1853 	EXP 	window1: recordFrameIntervals = False
+8.3426 	EXP 	Created press_space = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.1, italic=False, name='press_space', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='Hit the spacebar to begin', units=u'norm', win=Window(...), wrapWidth=1)
+8.3650 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 1.,  0.,  0.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 1.,  0.,  0.]), text='Hello World', units=u'norm', win=Window(...), wrapWidth=1)
+8.3720 	EXP 	Created inducer_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=array([ 0.,  1.,  0.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_word', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 0.,  1.,  0.]), text='Hello World', units=u'norm', win=Window(...), wrapWidth=1)
+8.3764 	EXP 	Created ISI_cross = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='ISI_cross', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='+', units=u'norm', win=Window(...), wrapWidth=1)
+8.3788 	EXP 	Created ISI_cross = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='ISI_cross', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='+', units=u'norm', win=Window(...), wrapWidth=1)
+8.3812 	EXP 	Created ITI_cross = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='ITI_cross', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='+', units=u'norm', win=Window(...), wrapWidth=1)
+8.3816 	EXP 	Created sequence: random, trialTypes=1, nReps=28, seed=None
+8.3891 	EXP 	Created instruction1 = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='instruction1', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='Hello World', units=u'norm', win=Window(...), wrapWidth=1)
+8.4518 	EXP 	instruction1: text = u'Block 1 of 4.\n\nPress space when ready.'
+8.4518 	EXP 	instruction1: autoDraw = True
+11.0520 	DATA 	Keypress: space
+11.0823 	EXP 	Created diagnostic_word_cong = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='diagnostic_word_cong', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='If tone press D\nIf cold press J', units=u'norm', win=Window(...), wrapWidth=1)
+11.0864 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([ 255.,    0.,    0.]), text='cold', units=u'norm', win=Window(...), wrapWidth=1)
+11.0985 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([ 255.,    0.,    0.]), text='tone', units=u'norm', win=Window(...), wrapWidth=1)
+11.1069 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([ 255.,    0.,    0.]), text='cold', units=u'norm', win=Window(...), wrapWidth=1)
+11.1133 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='cold', units=u'norm', win=Window(...), wrapWidth=1)
+11.1177 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([ 255.,    0.,    0.]), text='tone', units=u'norm', win=Window(...), wrapWidth=1)
+11.1232 	EXP 	Created inducer_left_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_left_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([   0.,  128.,    0.]), text='tone', units=u'norm', win=Window(...), wrapWidth=1)
+11.1271 	EXP 	Created inducer_right_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_right_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([   0.,  128.,    0.]), text='cold', units=u'norm', win=Window(...), wrapWidth=1)
+11.1353 	EXP 	instruction1: autoDraw = False
+11.1353 	EXP 	diagnostic_word_cong: autoDraw = True
+15.0688 	DATA 	Keypress: space
+16.1350 	EXP 	diagnostic_word_cong: autoDraw = False
+16.1517 	EXP 	ISI_cross: autoDraw = True
+17.1350 	EXP 	ISI_cross: autoDraw = False
+17.1350 	EXP 	ISI_cross: autoDraw = True
+17.1517 	EXP 	diagnostic_word: autoDraw = True
+17.7188 	DATA 	Keypress: d
+17.7351 	EXP 	diagnostic_word: autoDraw = False
+20.6517 	EXP 	diagnostic_word: autoDraw = True
+21.0686 	DATA 	Keypress: d
+21.0850 	EXP 	diagnostic_word: autoDraw = False
+24.1516 	EXP 	diagnostic_word: autoDraw = True
+24.4352 	DATA 	Keypress: j
+24.4516 	EXP 	diagnostic_word: autoDraw = False
+27.6515 	EXP 	diagnostic_word: autoDraw = True
+28.0351 	DATA 	Keypress: d
+28.0515 	EXP 	diagnostic_word: autoDraw = False
+31.1514 	EXP 	diagnostic_word: autoDraw = True
+31.5852 	DATA 	Keypress: d
+31.6015 	EXP 	diagnostic_word: autoDraw = False
+34.6515 	EXP 	inducer_right_word: autoDraw = True
+35.0351 	DATA 	Keypress: j
+35.0515 	EXP 	inducer_right_word: autoDraw = False
+37.5150 	EXP 	Created diagnostic_word_cong = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='diagnostic_word_cong', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='If chain press D\nIf grab press J', units=u'norm', win=Window(...), wrapWidth=1)
+37.5218 	EXP 	Created inducer_left_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_left_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([   0.,  128.,    0.]), text='chain', units=u'norm', win=Window(...), wrapWidth=1)
+37.5270 	EXP 	Created inducer_right_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_right_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([   0.,  128.,    0.]), text='grab', units=u'norm', win=Window(...), wrapWidth=1)
+37.5347 	EXP 	ISI_cross: autoDraw = False
+37.5347 	EXP 	ITI_cross: autoDraw = False
+37.5347 	EXP 	ISI_cross: autoDraw = False
+37.5347 	EXP 	diagnostic_word_cong: autoDraw = False
+37.5347 	EXP 	instruction1: autoDraw = False
+37.5347 	EXP 	diagnostic_word_cong: autoDraw = True
+42.5347 	EXP 	diagnostic_word_cong: autoDraw = False
+42.5513 	EXP 	ISI_cross: autoDraw = True
+43.5346 	EXP 	ISI_cross: autoDraw = False
+43.5346 	EXP 	ISI_cross: autoDraw = True
+43.5513 	EXP 	inducer_left_word: autoDraw = True
+44.1346 	EXP 	inducer_left_word: autoDraw = False
+44.2515 	DATA 	Keypress: j
+47.0513 	EXP 	inducer_right_word: autoDraw = True
+47.0513 	EXP 	inducer_right_word: autoDraw = False
+47.6513 	EXP 	ISI_cross: autoDraw = False
+47.6513 	EXP 	ITI_cross: autoDraw = True
+49.1098 	EXP 	Created diagnostic_word_cong = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='diagnostic_word_cong', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='If cities press D\nIf failed press J', units=u'norm', win=Window(...), wrapWidth=1)
+49.1159 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='failed', units=u'norm', win=Window(...), wrapWidth=1)
+49.1221 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='cities', units=u'norm', win=Window(...), wrapWidth=1)
+49.1277 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='failed', units=u'norm', win=Window(...), wrapWidth=1)
+49.1360 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='cities', units=u'norm', win=Window(...), wrapWidth=1)
+49.1436 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='failed', units=u'norm', win=Window(...), wrapWidth=1)
+49.1494 	EXP 	Created inducer_left_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_left_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([   0.,  128.,    0.]), text='cities', units=u'norm', win=Window(...), wrapWidth=1)
+49.1569 	EXP 	Created inducer_right_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_right_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([   0.,  128.,    0.]), text='failed', units=u'norm', win=Window(...), wrapWidth=1)
+49.1679 	EXP 	ISI_cross: autoDraw = False
+49.1679 	EXP 	ITI_cross: autoDraw = False
+49.1679 	EXP 	ISI_cross: autoDraw = False
+49.1679 	EXP 	diagnostic_word_cong: autoDraw = False
+49.1679 	EXP 	instruction1: autoDraw = False
+49.1679 	EXP 	diagnostic_word_cong: autoDraw = True
+50.8184 	DATA 	Keypress: space
+54.1678 	EXP 	diagnostic_word_cong: autoDraw = False
+54.1845 	EXP 	ISI_cross: autoDraw = True
+55.1678 	EXP 	ISI_cross: autoDraw = False
+55.1678 	EXP 	ISI_cross: autoDraw = True
+55.1844 	EXP 	diagnostic_word: autoDraw = True
+55.7675 	EXP 	diagnostic_word: autoDraw = False
+56.5679 	DATA 	Keypress: j
+58.6844 	EXP 	diagnostic_word: autoDraw = True
+58.6844 	EXP 	diagnostic_word: autoDraw = False
+62.1844 	EXP 	diagnostic_word: autoDraw = True
+62.4852 	DATA 	Keypress: j
+62.5009 	EXP 	diagnostic_word: autoDraw = False
+65.6843 	EXP 	diagnostic_word: autoDraw = True
+66.0344 	DATA 	Keypress: j
+66.0509 	EXP 	diagnostic_word: autoDraw = False
+69.1842 	EXP 	diagnostic_word: autoDraw = True
+69.4351 	DATA 	Keypress: j
+69.4675 	EXP 	diagnostic_word: autoDraw = False
+72.6841 	EXP 	inducer_left_word: autoDraw = True
+73.0181 	DATA 	Keypress: j
+73.0341 	EXP 	inducer_left_word: autoDraw = False
+76.1840 	EXP 	inducer_right_word: autoDraw = True
+76.5509 	DATA 	Keypress: j
+76.5674 	EXP 	inducer_right_word: autoDraw = False
+76.7840 	EXP 	ISI_cross: autoDraw = False
+76.7840 	EXP 	ITI_cross: autoDraw = True
+78.2115 	EXP 	Created diagnostic_word_cong = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='diagnostic_word_cong', opacity=1.0, ori=0, pos=array([ 0.,  0.]), rgb=array([ 255.,  255.,  255.]), text='If frank press D\nIf using press J', units=u'norm', win=Window(...), wrapWidth=1)
+78.2176 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='using', units=u'norm', win=Window(...), wrapWidth=1)
+78.2251 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='frank', units=u'norm', win=Window(...), wrapWidth=1)
+78.2321 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='using', units=u'norm', win=Window(...), wrapWidth=1)
+78.2372 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=1, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([ 255.,    0.,    0.]), text='frank', units=u'norm', win=Window(...), wrapWidth=1)
+78.2423 	EXP 	Created diagnostic_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'red', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=0, name='diagnostic_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([ 255.,    0.,    0.]), text='frank', units=u'norm', win=Window(...), wrapWidth=1)
+78.2479 	EXP 	Created inducer_left_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_left_word', opacity=1.0, ori=0, pos=array([ 0. , -0.2]), rgb=array([   0.,  128.,    0.]), text='frank', units=u'norm', win=Window(...), wrapWidth=1)
+78.2533 	EXP 	Created inducer_right_word = TextStim(alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color=u'green', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font=u'Arial', fontFiles=[], height=0.2, italic=False, name='inducer_right_word', opacity=1.0, ori=0, pos=array([ 0. ,  0.2]), rgb=array([   0.,  128.,    0.]), text='using', units=u'norm', win=Window(...), wrapWidth=1)
+78.2674 	EXP 	ISI_cross: autoDraw = False
+78.2674 	EXP 	ITI_cross: autoDraw = False
+78.2674 	EXP 	ISI_cross: autoDraw = False
+78.2674 	EXP 	diagnostic_word_cong: autoDraw = False
+78.2674 	EXP 	instruction1: autoDraw = False
+78.2674 	EXP 	diagnostic_word_cong: autoDraw = True
+81.4518 	DATA 	Keypress: escape
+81.5106 	EXP 	window1: mouseVisible = True
