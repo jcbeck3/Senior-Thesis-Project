@@ -294,12 +294,12 @@ for block in range(0,blocknum[0]):
                       np.repeat(proportion,1)]                  #whether stim is congruent (0) or not (1) 
         trial_vert = vert[:(stimnum + 2)]
         
-        print("Upright vs italics")
-        print(stimmatrix[0])
-        print("Congruent vs not")
-        print(stimmatrix[1])
-        print("Selecting which combo")
-        print(rand_stim)
+        #print("Upright vs italics")
+        #print(stimmatrix[0])
+        #print("Congruent vs not")
+        #print(stimmatrix[1])
+        #print("Selecting which combo")
+        #print(rand_stim)
         
         del stim_italics[:stimnum]
         del vert[:(stimnum + 2)]
@@ -411,7 +411,7 @@ for block in range(0,blocknum[0]):
                     diagnostic_word = diagnostic_words[i]
                     #ISI_cross = ISI_crosses[i]
                     if t >= diagnostic_starttime[i] and diagnostic_word.status == NOT_STARTED:
-                        print("Stimulus number: " + str(i) + " -- stimmatrix input number: " + str(j))
+                        #print("Stimulus number: " + str(i) + " -- stimmatrix input number: " + str(j))
                         # keep track of start time/frame for later
                         tStart = t
                         diagnostic_word.frameNStart = frameN  # exact frame index
@@ -420,18 +420,20 @@ for block in range(0,blocknum[0]):
                     frameRemains2 = diagnostic_starttime[i] + stimulus_duration + ISI_duration - win.monitorFramePeriod * 0.75
                     key_list_temp = event.getKeys(keyList=keypress)
                     if (len(key_list_temp) > 0 and len(key_list) == 0):
+                        #print("Diagnostic " + str(i))
                         key_list = key_list_temp
-                        time = t
-                        rt = ((time)-(tStart))*1000
+                        time1 = t
+                        key_list.append(time1)
+                        key_list.append((time1)-(tStart)*1000)
                     if (diagnostic_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                         diagnostic_word.setAutoDraw(False)
                         diagnostic_word.status = PAUSED
                     if (t >= frameRemains2 and diagnostic_word.status == PAUSED):
-                        if len(key_list)>0:
-                        #    print("Button was pressed")
-                        #    print(key_list)
+                        if len(key_list)==3:
                             key = key_list[0]
-                            del key_list[0]
+                            time = key_list[1]
+                            rt = key_list[2]
+                            del key_list[0:3]  
                         diagnostic_word.status = FINISHED
 
                         ## RECORD DATA ON THE STIMULUS
@@ -478,15 +480,18 @@ for block in range(0,blocknum[0]):
             key_list_temp = event.getKeys(keyList=keypress)
             if (len(key_list_temp) > 0 and len(key_list) == 0):
                 key_list = key_list_temp
-                time = t
-                rt = ((time)-(tStart))*1000
+                time1 = t
+                key_list.append(time1)
+                key_list.append((time1)-(tStart)*1000)
             if (inducer1_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                 inducer1_word.setAutoDraw(False)
                 inducer1_word.status = PAUSED
             if (t >= frameRemains2 and inducer1_word.status == PAUSED):
-                if len(key_list)>0:
+                if len(key_list)==3:
                     key = key_list[0]
-                    del key_list[0]  
+                    time = key_list[1]
+                    rt = key_list[2]
+                    del key_list[0:3]  
                 inducer1_word.status = FINISHED
 
                 ## RECORD DATA ON THE STIMULUS
@@ -529,16 +534,17 @@ for block in range(0,blocknum[0]):
             key_list_temp = event.getKeys(keyList=keypress)
             if (len(key_list_temp) > 0 and len(key_list) == 0):
                 key_list = key_list_temp
-                time = t
-                rt = ((time)-(tStart))*1000
+                time1 = t
+                key_list.append(time1)
+                key_list.append((time1)-(tStart)*1000)
             frameRemains4 = ITI_cross_starttime + ITI_cross_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
             
             if (ITI_cross.status == STARTED and t >= frameRemains4 and inducer2_word.status == PAUSED):
-                if len(key_list)>0:
-                #    print("Button was pressed at end")
-                #    print(key_list)
+                if len(key_list)==3:
                     key = key_list[0]
-                    del key_list[0]  
+                    time = key_list[1]
+                    rt = key_list[2]
+                    del key_list[0:3]  
                 inducer2_word.status = FINISHED
                 ITI_cross.setAutoDraw(False)
                 
