@@ -114,7 +114,10 @@ orientation = ['upright','italic']
 #proportion thing with neutral block (2,2 instead of 1,3)       DONE
 #block instruction/ screen (like block 1 of 4 or whatever)      DONE
 
-
+#Stimulus timing -- 3.5 s
+#(3.5)(3+2) = 17.5 s on average for stimuli
+#17.5 + 5 s mapping = 22.5 s for average trial
+#3600/22.5 = 160 trials
 
 ##########
 
@@ -424,12 +427,14 @@ for block in range(0,blocknum[0]):
                         key_list = key_list_temp
                         time1 = t
                         key_list.append(time1)
-                        key_list.append((time1)-(tStart)*1000)
+                        key_list.append((time1-tStart)*1000)
                     if (diagnostic_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                         diagnostic_word.setAutoDraw(False)
                         diagnostic_word.status = PAUSED
                     if (t >= frameRemains2 and diagnostic_word.status == PAUSED):
                         if len(key_list)==3:
+                            print(key_list)
+                            print(tStart)
                             key = key_list[0]
                             time = key_list[1]
                             rt = key_list[2]
@@ -450,7 +455,6 @@ for block in range(0,blocknum[0]):
                         thisExp.addData('Accuracy', int(corr_key == key))
                         thisExp.addData('ButtonPressTime', time)
                         thisExp.addData('RT', rt)
-                        thisExp.addData('DiagnosticTime',t-tStart)
                         thisExp.nextEntry()   
 
 
@@ -482,7 +486,7 @@ for block in range(0,blocknum[0]):
                 key_list = key_list_temp
                 time1 = t
                 key_list.append(time1)
-                key_list.append((time1)-(tStart)*1000)
+                key_list.append((time1-tStart)*1000)
             if (inducer1_word.status == STARTED and t >= frameRemains):# or (diagnostic_word.status == STARTED and (len(key_list)>0)):
                 inducer1_word.setAutoDraw(False)
                 inducer1_word.status = PAUSED
@@ -508,7 +512,6 @@ for block in range(0,blocknum[0]):
                 thisExp.addData('Accuracy', int(corr_key1 == key))
                 thisExp.addData('ButtonPressTime', time)
                 thisExp.addData('RT', rt)
-                thisExp.addData('InducerTime',t-tStart)
                 thisExp.nextEntry()   
 
             if (inducer2_word.status == NOT_STARTED):
@@ -536,7 +539,7 @@ for block in range(0,blocknum[0]):
                 key_list = key_list_temp
                 time1 = t
                 key_list.append(time1)
-                key_list.append((time1)-(tStart)*1000)
+                key_list.append((time1-tStart)*1000)
             frameRemains4 = ITI_cross_starttime + ITI_cross_duration - win.monitorFramePeriod * 0.75  # most of one frame period left
             
             if (ITI_cross.status == STARTED and t >= frameRemains4 and inducer2_word.status == PAUSED):
@@ -562,7 +565,6 @@ for block in range(0,blocknum[0]):
                 thisExp.addData('Accuracy', int(corr_key2 == key))
                 thisExp.addData('ButtonPressTime', time)
                 thisExp.addData('RT', rt)
-                thisExp.addData('InducerTime',t-tStart)
                 thisExp.nextEntry()
                 
                 continueRoutine = False
