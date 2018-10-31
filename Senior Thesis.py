@@ -114,10 +114,10 @@ orientation = ['upright','italic']
 #proportion thing with neutral block (2,2 instead of 1,3)       DONE
 #block instruction/ screen (like block 1 of 4 or whatever)      DONE
 
-#Stimulus timing -- 3.5 s
-#(3.5)(3+2) = 17.5 s on average for stimuli
-#17.5 + 5 s mapping = 22.5 s for average trial
-#3600/22.5 = 160 trials
+#Stimulus timing -- 2 s
+#(2)(3+2) = 10 s on average for stimuli
+#10 + 6 s mapping and pre-fixation = 16 s for average trial
+#3600/15 = 225 trials
 
 ##########
 
@@ -174,9 +174,9 @@ print(trialmatrix_full)
 rs_mapping_duration = 5.000
 ISI_cross_duration1 = 1.000
                 # or 1500ms
-ISI_duration = 2.900
+ISI_duration = 1.400
 stimulus_duration = 0.600
-ITI_cross_duration = 2.900
+ITI_cross_duration = 1.400
 
 
 ##----------------------------------------------------------------------------##
@@ -461,7 +461,7 @@ for block in range(0,blocknum[0]):
             inducer1_word = inducer_pair[0]
             inducer2_word = inducer_pair[1]
 
-            if (inducer1_word.name == inducer_left_word):
+            if (inducer1_word.text == inducer_left_word.text):
                 corr_key1 = keypress[0]
                 corr_key2 = keypress[1]
             else:
