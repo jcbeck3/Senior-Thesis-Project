@@ -93,10 +93,12 @@ trialnum = [24]                 #number of trials/ miniblocks
 blocknum = [4]                  #number of blocks
 stim_options = [[0,0],[1,2],[2,2],[1,4],[2,3]]         #differing number of stimuli per trial
 stim_props = [0,0,1,1,2,2,3,4]
-word_list = ['word1','word2','word3','word4','word5','word6','word7','word8','word9','word10',
-             'word11','word12','word13','word14','word15','word16','word17','word18','word19','word20',
-             'word21','word22','word23','word24','word25','word26','word27','word28','word29','word30',
-             'word31','word32','word33','word34','word35','word36','word37','word38','word39','word40']
+word_list = ['record','worry','using','widely','grab','tank','creek','guilty','slowly','lights','plants','matrix','sudden',
+'funny','trial','wave','animal','gear','raised','shield','ship','touch','input','bull','tone','truth','dear','drugs','tough',
+'failed','newt','tall','must','busy','powers','postal','here','hell','silver','minute','pour','milk','smiled','group','begins',
+'sell','cock','shares','text','dice','frank','lack','duties','filter','happy','issues','class','moon','chain','friend','troll',
+'much','virus','blade','video','rate','global','falls','severe','array','voting','lose','signal','cold','cities','models','smile',
+'manual','prayer','deal','extra','racial','love','debate','laid','plans','goblin','figure','doubt','crimes','dirty','latest']
 vert_options = [(0,0.2),(0,-0.2)] #if 0 is above fixation, if 1 is below
 
 #   Mapping to values
